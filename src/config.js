@@ -3,6 +3,6 @@ const dbConnectionString = process.env.DB_CONNECTION_STRING || 'mongodb://localh
 module.exports = {
   db: {
     host: dbConnectionString,
-    name: 'heroesRPG'
+    name: 'properties'
   }
 };

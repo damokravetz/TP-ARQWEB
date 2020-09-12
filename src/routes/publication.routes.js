@@ -5,14 +5,14 @@ module.exports = (app) => {
     app.post('/publications', publications.create);
 
     // Retrieve all Notes
-    app.get('/publications', publications.findAll);
+    /*app.get('/publications', publications.findAll);
 
     // Retrieve a single Note with noteId
-    app.get('/publications/:noteId', publications.findOne);
+    app.get('/publications/:id', publications.findOne);
 
     // Update a Note with noteId
-    app.put('/publications/:noteId', publications.update);
+    app.put('/publications/:id', publications.update);
 
     // Delete a Note with noteId
-    app.delete('/publications/:noteId', publications.delete);
+    app.delete('/publications/:id', publications.delete);*/
 }
