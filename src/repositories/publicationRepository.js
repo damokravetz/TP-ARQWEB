@@ -25,6 +25,17 @@ class PublicationRepository {
     })
   }
 
+  getAll() {
+    return mongoClient(async (err, dbo) => {
+      if (err) {
+        throw err
+      }
+
+      let mivar= await dbo.collection('publications').find({}).toArray()
+      return mivar;
+    });
+  }
+
   get(id) {
     return mongoClient(async (err, dbo) => {
       if (err) {

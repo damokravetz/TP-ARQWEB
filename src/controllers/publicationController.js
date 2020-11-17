@@ -23,6 +23,11 @@ class PublicationController {
     }
   }
 
+  async getAll(req, res) {
+    const heroes = await PublicationService.getAll();
+    res.send(heroes)
+  }
+
   async get(req, res) {
     try {
       const id = req.params.id;

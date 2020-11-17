@@ -9,6 +9,10 @@ class PublicationService {
         const myPublication = await PublicationRepository.get(id);
         return JSON.stringify(myPublication);
     }
+    async getAll() {
+        const publications = await PublicationRepository.getAll();
+        return JSON.stringify(publications)
+    }
     async update(id, data) {
         const myPublication = await PublicationRepository.update(id, data);
         return JSON.stringify(myPublication);
