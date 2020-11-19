@@ -29,7 +29,6 @@ class PublicationService {
             myNewQuery.district=query.district;
         }
         this.setQueryPriceRange(query, myNewQuery);
-        console.log(myNewQuery);
         return myNewQuery;
     }
 

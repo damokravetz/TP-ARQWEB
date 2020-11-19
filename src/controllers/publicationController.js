@@ -25,7 +25,6 @@ class PublicationController {
 
   async getAll(req, res) {
     try{
-      console.log(req.query)
       const myQuery=req.query;
       const heroes = await PublicationService.getAll(myQuery);
       res.send(heroes)
