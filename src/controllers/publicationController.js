@@ -26,8 +26,8 @@ class PublicationController {
   async getAll(req, res) {
     try{
       const myQuery=req.query;
-      const heroes = await PublicationService.getAll(myQuery);
-      res.send(heroes)
+      const response = await PublicationService.getAll(myQuery);
+      res.send(response)
     }catch(e){
       //console.error(e);
       res.send({ message: 'Error' })
