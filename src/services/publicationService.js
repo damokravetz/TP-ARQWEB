@@ -10,8 +10,8 @@ class PublicationService {
         return JSON.stringify(myPublication);
     }
     async getAll(query) {
-        this.normalizeQuery(query)
-        const publications = await PublicationRepository.getAll(query);
+        const normalizedQuery=this.normalizeQuery(query)
+        const publications = await PublicationRepository.getAll(normalizedQuery);
         return JSON.stringify(publications)
     }
     async update(id, data) {
@@ -24,23 +24,16 @@ class PublicationService {
     }
 
     normalizeQuery(query){
-        if(query.rooms!=null){
-            let rooms=parseInt(query.rooms);
-            query.rooms=rooms;
+        let myNewQuery={};
+        if(query.district!=null){
+            myNewQuery.district=query.district;
         }
-        if(query.brooms!=null){
-            let brooms=parseInt(query.brooms);
-            query.brooms=brooms;
-        }
-        if(query.number!=null){
-            let number=parseInt(query.number);
-            query.number=number;
-        }
-        this.setQueryPriceRange(query);
-        console.log(query)
+        this.setQueryPriceRange(query, myNewQuery);
+        console.log(myNewQuery);
+        return myNewQuery;
     }
-    
-    setQueryPriceRange(query){
+
+    setQueryPriceRange(query, myNewQuery){
         let priceRange={$lt:0, $gt:0};
         if(query.maxPrice!=null){
             let maxPrice=parseInt(query.maxPrice)
@@ -56,7 +49,7 @@ class PublicationService {
         }else{
             delete priceRange.$gt;
         }
-        query.price=priceRange;
+        myNewQuery.price=priceRange;
     }
 }
 module.exports = new PublicationService();
