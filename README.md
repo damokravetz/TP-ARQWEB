@@ -6,6 +6,9 @@ Objetivos del servicio rest:
 Porder realizar publicaciones de alquileres de viviendas que persistan en una base no relacional MongoDB.
 Las publicaciones podran ser editadas y consultadas por distintos atributos como la zona, el metraje, precio y cantidad de ambientes.
 
+Instalar dependencias: npm install.
+Correr el servidor node: npm start.
+
 Endpoints:
 
 - CREATE:
